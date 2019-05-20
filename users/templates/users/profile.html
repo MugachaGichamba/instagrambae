@@ -1,7 +1,7 @@
 {% extends 'instagrambae/base.html' %}
 {% block content %}
 
-    <img class="rounded-circle" src="{{ user.profile.image.url }}" alt="">
+    <img style="width: 100px;height: 100px; border-radius: 50%" src="{{ user.profile.image.url }}" alt="">
     <h2>{{ user.username }}</h2>
     <p>{{ user.email }}</p>
     <p>{{ user.profile.bio }}</p>
