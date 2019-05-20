@@ -20,3 +20,7 @@ def register(request):
 def home(request):
 
     return render(request, "users/home.html")
+
+def profile(request):
+
+    return render(request, 'users/profile.html')
