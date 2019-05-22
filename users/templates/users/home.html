@@ -1,6 +1,16 @@
 {% extends 'instagrambae/base.html' %}
 
 {% block content %}
-<h1>Welcome Home</h1>
+    {% for post in posts %}
+        <h3>{{ post.image_name }}</h3>
 
-{% endblock content%}
+        <img style="width: 300px; height: 300px;" src="{{ post.image.url }}" alt="post image"> <br>
+        <p>
+            <small>{{ post.image_caption }}</small>
+        </p>
+
+        <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+        <button class="glyphicon glyphicon-heart">Like</button>
+
+    {% endfor %}
+{% endblock content %}
