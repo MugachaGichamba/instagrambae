@@ -46,3 +46,7 @@ def profile(request):
     }
 
     return render(request, 'users/profile.html', context)
+
+class PostDetailView(DetailView):
+
+    model = Post
