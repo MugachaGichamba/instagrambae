@@ -9,13 +9,27 @@
         <p>
             <small>{{ post.image_caption }}</small>
         </p>
-        <h3>Liked By</h3>
-        <ul>
-            {% for liker in post.likes.all %}
-                <li>{{ liker }}</li>
-            {% endfor %}
-        </ul>
-
+        {% if post.likes.all %}
+            <h3>Liked By</h3>
+            <ul>
+                {% for liker in post.likes.all %}
+                    <li>{{ liker }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <h3>Be the first to like this post</h3>
+        {% endif %}
         <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
     {% endfor %}
+    {% for comment in post.comments.all %}
+        <div class="comment">
+            <p>comment.content</p>
+            <div class="date">{{ comment.timestamp }}</div>
+            <strong>{{ comment.author }}</strong>
+            <p>{{ comment.text|linebreaks }}</p>
+        </div>
+    {% empty %}
+        <p>No comments here yet :(</p>
+    {% endfor %}
+
 {% endblock content %}

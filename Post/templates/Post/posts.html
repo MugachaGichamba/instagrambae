@@ -1,0 +1,14 @@
+{% extends 'instagrambae/base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+        <h3>{{ post.image_name }}</h3>
+
+        <img style="width: 300px; height: 300px;" src="{{ post.image.url }}" alt="post image"> <br>
+        <p>
+            <small>{{ post.image_caption }}</small>
+        </p>
+<p>{{ how_many }}</p>
+        <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+    {% endfor %}
+{% endblock content %}
