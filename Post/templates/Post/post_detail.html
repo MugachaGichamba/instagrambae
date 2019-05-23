@@ -1,0 +1,11 @@
+{% extends 'instagrambae/base.html' %}
+
+{% block content %}
+    <h1>Liked by:</h1>
+    {% for like in likers %}
+
+        <ul style="list-style-type: none">
+            <li>{{ like.username }}</li>
+        </ul>
+    {% endfor %}
+{% endblock content %}
