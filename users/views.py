@@ -19,6 +19,7 @@ def register(request):
 
 @login_required
 def home(request):
+    print()
     context = {
         'posts': Post.objects.all()
     }
