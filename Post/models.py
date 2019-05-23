@@ -23,7 +23,7 @@ class Post(models.Model):
         return reverse('insta_home')
 
 class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField(max_length=160)
     timestamp = models.DateTimeField(auto_now_add=True)

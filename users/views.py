@@ -3,7 +3,7 @@ from django.contrib import messages
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
 from django.views.generic import DetailView
-from Post.models import Post
+from Post.models import Post, Comment
 def register(request):
     if request.method == "POST":
         form = UserRegisterForm(request.POST)
@@ -19,7 +19,7 @@ def register(request):
 
 @login_required
 def home(request):
-    print()
+    print(Comment.objects.all())
     context = {
         'posts': Post.objects.all()
     }

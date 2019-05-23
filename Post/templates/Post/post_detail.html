@@ -10,8 +10,7 @@
     </p>
 
     <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
-    <p>{{ likers }}</p>
-    <p>{{ object.likes }}</p>
+
     <form action="{% url "like_post" %}" method="post">
         {% csrf_token %}
         {% if is_liked %}
@@ -31,5 +30,13 @@
 {#        {% endif %}#}
 {##}
 {#    </form>#}
-
+<div>
+    <h1>Comments for {{ post.image_name }}</h1>
+    <ul>
+{% for comment in object.comments.all %}
+    <li>{{ comment.content }} by <small>{{ comment.user }}</small></li>
+    {% endfor %}
+</ul>
 {% endblock content %}
+
+</div>
