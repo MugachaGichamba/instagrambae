@@ -21,22 +21,26 @@
 
     </form>
 
-{#    <form action="{% url "comment_post" %}" method="post">#}
-{#        {% csrf_token %}#}
-{#        {% if is_liked %}#}
-{#            <button type="submit" class="btn btn-danger" name="post_id" value="{{ object.id }}">Dislike</button>#}
-{#        {% else %}#}
-{#            <button type="submit" class="btn btn-primary" name="post_id" value="{{ object.id }}">Like</button>#}
-{#        {% endif %}#}
-{##}
-{#    </form>#}
-<div>
-    <h1>Comments for {{ post.image_name }}</h1>
-    <ul>
-{% for comment in object.comments.all %}
-    <li>{{ comment.content }} by <small>{{ comment.user }}</small></li>
+    {#    <form action="{% url "comment_post" %}" method="post">#}
+    {#        {% csrf_token %}#}
+    {#        {% if is_liked %}#}
+    {#            <button type="submit" class="btn btn-danger" name="post_id" value="{{ object.id }}">Dislike</button>#}
+    {#        {% else %}#}
+    {#            <button type="submit" class="btn btn-primary" name="post_id" value="{{ object.id }}">Like</button>#}
+    {#        {% endif %}#}
+    {##}
+    {#    </form>#}
+    <div>
+    <hr>
+    <h1>{{ object.comments.all.count }} Comment{{ object.comments.all|pluralize }}</h1>
+    {% for comment in object.comments.all %}
+        <blockquote class="blockquote">
+            <p class="mb-0">{{ comment.content }}</p>
+            <footer class="blockquote-footer">By <cite
+                    title="{{ comment.user|capfirst }}">{{ comment.user|capfirst }}</cite></footer>
+        </blockquote>
     {% endfor %}
-</ul>
+
 {% endblock content %}
 
 </div>
