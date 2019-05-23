@@ -1,4 +1,4 @@
-# PHOTOGALLERY
+# INSTAGEAMBAE
 
 This is a replica of the popular social media site instagram
 
